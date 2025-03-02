@@ -1,0 +1,71 @@
+2 SUM
+
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int n=numbers.length;
+        // int ar[]=new int[2];
+        // ArrayList<Integer>ar=new ArrayList<>()
+        int left=0;
+        int right=n-1;
+        // int sum=0;
+        while(right>left){
+        int sum=numbers[left]+numbers[right];
+        if(sum==target){
+    //   return new int[]{left+1,right+1};
+    int[] result = new int[2]; 
+            result[0] = left + 1; 
+            result[1] = right + 1; 
+            return result; 
+        }
+        else if(sum>target){
+            right--;
+            
+        }
+        else{
+            left++;
+            
+        }
+        }
+        return new int[]{};
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+USING HASHMAP
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map indices = new HashMap<>();  // val -> index
+
+        for (int i = 0; i < nums.length; i++) {
+            indices.put(nums[i], i);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            int diff = target - nums[i];
+            if (indices.containsKey(diff) && indices.get(diff) != i) {
+                return new int[]{i, indices.get(diff)};
+            }
+        }
+
+        return new int[0];
+    }
+}
+
+
+
+
+
+
+
+
