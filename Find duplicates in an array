@@ -1,0 +1,24 @@
+
+
+class Solution {
+    public List<Integer> findDuplicates(int[] arr) {
+        HashMap<Integer,Integer>hash=new HashMap<>();
+       ArrayList<Integer>ar=new ArrayList<>();
+       
+       for(int key:arr){
+           hash.put(key,hash.getOrDefault(key,0)+1);
+            if(hash.get(key)==2){
+           ar.add(key);
+       }
+       }
+    
+       return ar;
+    }
+}
+
+
+
+
+
+
+
